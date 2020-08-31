@@ -10,6 +10,8 @@ const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
 const app = express()
+// Heroku provides a port, but if not deployed on heroku, use default
+const port = process.env.PORT || 3000
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs')
@@ -86,6 +88,6 @@ app.get('*', (req, res) => {
 })
 
 //Starting the engine at the free port on the local machine
-app.listen(3000, () => {
-    console.log('Server is run on the port 3000')
+app.listen(port, () => {
+    console.log('Server is run on the port ' + port)
 })
