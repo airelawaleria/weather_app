@@ -19,7 +19,8 @@ const forecast = (longitude, latitude, callback) => {
         }else if (body.error){
             callback('Wrong coordinates')
         }else {
-            callback(undefined, 'Right now the weather is described by ' + body.current.weather_descriptions + '. The last measured temperature (' + body.current.observation_time + ') is ' + body.current.temperature + ' degrees Celcius. ')
+            callback(undefined, 'Right now the weather is described by ' + body.current.weather_descriptions[0] + '. The last measured temperature (' + body.current.observation_time + ') is ' + body.current.temperature + ' degrees Celcius. ' +
+            'It feels like ' + body.current.feelslike + '. ')
         }
     })
 }
